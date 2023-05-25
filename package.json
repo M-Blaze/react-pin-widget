@@ -1,0 +1,22 @@
+{
+  "name": "react-pin-widget",
+  "version": "1.0.0",
+  "description": "A flexible and easy to use react pin component",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/M-Blaze/react-pin-widget.git"
+  },
+  "keywords": [
+    "react-pin"
+  ],
+  "author": "Moulik Rai",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/M-Blaze/react-pin-widget/issues"
+  },
+  "homepage": "https://github.com/M-Blaze/react-pin-widget#readme"
+}
