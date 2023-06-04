@@ -1,9 +1,11 @@
 {
   "name": "react-pin-widget",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "A flexible and easy to use react pin component",
   "scripts": {
-    "rollup-build-lib": "rollup -c"
+    "rollup-build-lib": "rollup -c",
+    "version": "git add -A src",
+    "broadcast": "yarn version && git push"
   },
   "repository": {
     "type": "git",
