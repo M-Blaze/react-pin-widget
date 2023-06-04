@@ -1,4 +1,4 @@
-import React, { useCallback, useMemo, useRef, useState, useEffect } from 'react'
+import React, { useCallback, useMemo, useState, useEffect } from 'react'
 
 import PinInput from './components/PinInput'
 import { Pin } from './@types'
@@ -13,7 +13,7 @@ interface ReactPinProps {
 }
 
 const ReactPin:React.FC<ReactPinProps> = ({ length = 6, type = 'numeric', inputClass, onFill }) => {
-  const inputsRef = useRef<HTMLInputElement[]>([])
+  // const inputsRef = useRef<HTMLInputElement[]>([])
   const pinLength = useMemo(() => {
     return Number(length) || 0 
   }, [length])
@@ -67,11 +67,11 @@ const ReactPin:React.FC<ReactPinProps> = ({ length = 6, type = 'numeric', inputC
 
   const focusInput = (index: number) => {
     if (index < 0) return
-    if (index >= pinLength) {
-      return setTimeout(() => inputsRef.current[index - 1].blur(), 0)
-    }
+    // if (index >= pinLength) {
+    //   return setTimeout(() => inputsRef.current[index - 1].blur(), 0)
+    // }
 
-    setTimeout(() => inputsRef.current[index].focus(), 0)
+    // setTimeout(() => inputsRef.current[index].focus(), 0)
   }
   
   useEffect(() => {
@@ -90,7 +90,7 @@ const ReactPin:React.FC<ReactPinProps> = ({ length = 6, type = 'numeric', inputC
   return (
     <div className='react-pin'>
       {
-        codes.map((code, index) => <PinInput code={code} ref={input => (inputsRef.current[index] = input as HTMLInputElement)} className={inputClass} key={index} type={inputType} inputHandler={(key: Pin) => { onKeyInput(index, key) }} />)
+        codes.map((code, index) => <PinInput code={code} className={inputClass} key={index} type={inputType} inputHandler={(key: Pin) => { onKeyInput(index, key) }} />)
       }
     </div>
   )
