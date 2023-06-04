@@ -33,7 +33,7 @@ import ReactPin from 'react-pin-widget'
 ## Properties
 
 <div>
-  <strong style="background-color: #ccc;">length: Number (Default: 6)</span> (optional)
+  <strong>length: Number (Default: 6)</span> (optional)
   
   It is the number of pin input.
   
@@ -45,7 +45,7 @@ import ReactPin from 'react-pin-widget'
 </div>
 <hr />
 <div>
-  <span style="background-color: #ccc;">type: string</span> (optional)
+  <span>type: string</span> (optional)
   
   It is the type of input.
 
@@ -53,36 +53,36 @@ import ReactPin from 'react-pin-widget'
 <ReactPin type='alphabet'/>
 ```
 
-<strong style="color: red">Values accepted</strong>
+<strong ">Values accepted</strong>
 
   <ol>
     <li>
-        <span style="background-color: #ccc;">numeric (Default):</span> Accepts numbers only
+        <span>numeric (Default):</span> Accepts numbers only
     </li>
     <li>
-        <span style="background-color: #ccc;">alphaNumeric:</span> Accepts both alphabets and numbers
+        <span>alphaNumeric:</span> Accepts both alphabets and numbers
     </li>
     <li>
-        <span style="background-color: #ccc;">alphabet:</span> Accepts alphabets only
+        <span>alphabet:</span> Accepts alphabets only
     </li>
     <li>
-        <span style="background-color: #ccc;">numericPassword:</span> Password type, accepts numbers only
+        <span>numericPassword:</span> Password type, accepts numbers only
     </li>
     <li>
-        <span style="background-color: #ccc;">alphaNumericPassword:</span> Password type, accepts both alphabets and numbers
+        <span>alphaNumericPassword:</span> Password type, accepts both alphabets and numbers
     </li>
   </ol>
 </div>
 <hr />
 <div>
-  <span style="background-color: #ccc;">inputClass: string</span> (optional)
+  <span>inputClass: string</span> (optional)
 
 Used to style pin inputs
 
 </div>
 <hr />
 <div>
-  <span style="background-color: #ccc;">onFill: function</span> (optional)
+  <span>onFill: function</span> (optional)
 
 emits and event on every key input.
 
