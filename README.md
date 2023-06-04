@@ -9,7 +9,7 @@
 Using npm:
 
 ```
-  npm i --save react-pin-input
+npm i --save react-pin-input
 ```
 
 ---
@@ -17,7 +17,7 @@ Using npm:
 Using yarn:
 
 ```
-  yarn add react-pin-input
+yarn add react-pin-input
 ```
 
 ---
@@ -25,7 +25,7 @@ Using yarn:
 ## Usage
 
 ```
-  import ReactPin from 'react-pin-widget'
+import ReactPin from 'react-pin-widget'
 ```
 
 ---
@@ -40,17 +40,17 @@ Using yarn:
   Default value is 6
   
   ```
-    <ReactPin length={5} />
+  <ReactPin length={5} />
   ```
 </div>
 <hr />
 <div>
   <span style="background-color: #ccc;">type: string</span> (optional)
   
-    It is the type of input.
+  It is the type of input.
 
 ```
-  <ReactPin type='alphabet'/>
+<ReactPin type='alphabet'/>
 ```
 
 <strong style="color: red">Values accepted</strong>
@@ -87,11 +87,11 @@ Used to style pin inputs
 emits and event on every key input.
 
 ```
-  const fillHandler = (val) => {
-    console.log(val)
-  }
+const fillHandler = (val) => {
+  console.log(val)
+}
 
-  <ReactPin onFill={fillHandler}/>
+<ReactPin onFill={fillHandler}/>
 ```
 
 </div>
