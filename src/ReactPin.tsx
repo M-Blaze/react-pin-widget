@@ -1,20 +1,25 @@
-import React, { useCallback, useMemo, useRef, useState } from 'react'
+'use client'
+
+import React, { useCallback, useMemo, useRef, useState, useEffect } from 'react'
 
 import PinInput from './components/PinInput'
-import { Pin } from '../../@types'
+import { Pin } from './@types'
 
-type PinType = 'numeric' | 'alphaNumeric' | 'alphaNumericPassword' | 'numericPassword' | 'alphabet'
+export type PinType = 'numeric' | 'alphaNumeric' | 'alphaNumericPassword' | 'numericPassword' | 'alphabet'
 
 interface ReactPinProps {
   length?: number,
   type?: PinType,
-  inputClass?: string
+  inputClass?: string,
+  onFill?: (code: string) => void
 }
-const ReactPin:React.FC<ReactPinProps> = ({ length = 6, type = 'numeric', inputClass }) => {
+
+const ReactPin:React.FC<ReactPinProps> = ({ length = 6, type = 'numeric', inputClass, onFill }) => {
   const inputsRef = useRef<HTMLInputElement[]>([])
   const pinLength = useMemo(() => {
     return Number(length) || 0 
   }, [length])
+
   const checkIfKeyValid = useCallback((key: Pin) => {
     let regex = /^[a-zA-Z0-9]+$/
     
@@ -28,12 +33,14 @@ const ReactPin:React.FC<ReactPinProps> = ({ length = 6, type = 'numeric', inputC
     
     return regex.test(key)
   }, [type])
+
   const [codes, setCodes] = useState<Pin[]>(new Array(pinLength).fill(''))
   const inputType = useMemo(() => {
     if (type === 'alphaNumericPassword' || type === 'numericPassword') return 'password'
 
     return 'text'
   }, [type])
+
   const backSpaceHandler = (index: number) => {
     if (codes[index] === '') {
       return focusInput(index - 1)
@@ -41,6 +48,7 @@ const ReactPin:React.FC<ReactPinProps> = ({ length = 6, type = 'numeric', inputC
 
     updatePinCode(index, '')
   }
+
   const onKeyInput = (index: number, key: Pin) => {
     if (key === 'Backspace') return backSpaceHandler(index)
     if (key.length > 1) return
@@ -49,6 +57,7 @@ const ReactPin:React.FC<ReactPinProps> = ({ length = 6, type = 'numeric', inputC
     updatePinCode(index, key)
     focusInput(index + 1)
   }
+
   const updatePinCode = (index: number, code: Pin) => {
     setCodes(currCodes => {
       const prevCodes = [...currCodes]
@@ -57,6 +66,7 @@ const ReactPin:React.FC<ReactPinProps> = ({ length = 6, type = 'numeric', inputC
       return prevCodes
     })
   }
+
   const focusInput = (index: number) => {
     if (index < 0) return
     if (index >= pinLength) {
@@ -65,6 +75,19 @@ const ReactPin:React.FC<ReactPinProps> = ({ length = 6, type = 'numeric', inputC
 
     setTimeout(() => inputsRef.current[index].focus(), 0)
   }
+  
+  useEffect(() => {
+    const value = codes.join('')
+
+    if (!onFill || !value) return
+    
+    onFill(value)
+    // eslint-disable-next-line
+  }, [codes])
+
+  useEffect(() => {
+    setCodes(new Array(pinLength).fill(''))
+  }, [pinLength])
 
   return (
     <div className='react-pin'>
