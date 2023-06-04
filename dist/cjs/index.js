@@ -2801,76 +2801,39 @@ if (process.env.NODE_ENV === 'production') {
 var reactExports = react.exports;
 var React = /*@__PURE__*/getDefaultExportFromCjs(reactExports);
 
-const PinInput = React.forwardRef(({ code, type, inputHandler, className, style }, ref) => {
+function styleInject(css, ref) {
+  if ( ref === void 0 ) ref = {};
+  var insertAt = ref.insertAt;
+
+  if (!css || typeof document === 'undefined') { return; }
+
+  var head = document.head || document.getElementsByTagName('head')[0];
+  var style = document.createElement('style');
+  style.type = 'text/css';
+
+  if (insertAt === 'top') {
+    if (head.firstChild) {
+      head.insertBefore(style, head.firstChild);
+    } else {
+      head.appendChild(style);
+    }
+  } else {
+    head.appendChild(style);
+  }
+
+  if (style.styleSheet) {
+    style.styleSheet.cssText = css;
+  } else {
+    style.appendChild(document.createTextNode(css));
+  }
+}
+
+var css_248z = ".pin-input {\r\n  height: 50px;\r\n  width: 50px;\r\n  text-align: center;\r\n  margin: 0 10px 10px 0;\r\n}";
+styleInject(css_248z);
+
+React.forwardRef(({ code, type, inputHandler, className, style }, ref) => {
     const handleKeyDown = (e) => {
         inputHandler(e.key);
     };
     return (React.createElement("input", { className: `pin-input ${className || ''}`, style: style, autoComplete: 'off', ref: ref, type: type, value: code, onKeyDown: handleKeyDown, onChange: () => { } }));
 });
-
-const ReactPin = ({ length = 6, type = 'numeric', inputClass, onFill }) => {
-    const inputsRef = reactExports.useRef([]);
-    const pinLength = reactExports.useMemo(() => {
-        return Number(length) || 0;
-    }, [length]);
-    const checkIfKeyValid = reactExports.useCallback((key) => {
-        let regex = /^[a-zA-Z0-9]+$/;
-        if (type === 'numeric' || type === 'numericPassword') {
-            regex = /^[0-9]+$/;
-        }
-        if (type === 'alphabet') {
-            regex = /^[a-zA-Z]+$/;
-        }
-        return regex.test(key);
-    }, [type]);
-    const [codes, setCodes] = reactExports.useState(new Array(pinLength).fill(''));
-    const inputType = reactExports.useMemo(() => {
-        if (type === 'alphaNumericPassword' || type === 'numericPassword')
-            return 'password';
-        return 'text';
-    }, [type]);
-    const backSpaceHandler = (index) => {
-        if (codes[index] === '') {
-            return focusInput(index - 1);
-        }
-        updatePinCode(index, '');
-    };
-    const onKeyInput = (index, key) => {
-        if (key === 'Backspace')
-            return backSpaceHandler(index);
-        if (key.length > 1)
-            return;
-        if (!checkIfKeyValid(key))
-            return;
-        updatePinCode(index, key);
-        focusInput(index + 1);
-    };
-    const updatePinCode = (index, code) => {
-        setCodes(currCodes => {
-            const prevCodes = [...currCodes];
-            prevCodes[index] = code;
-            return prevCodes;
-        });
-    };
-    const focusInput = (index) => {
-        if (index < 0)
-            return;
-        if (index >= pinLength) {
-            return setTimeout(() => inputsRef.current[index - 1].blur(), 0);
-        }
-        setTimeout(() => inputsRef.current[index].focus(), 0);
-    };
-    reactExports.useEffect(() => {
-        const value = codes.join('');
-        if (!onFill || !value)
-            return;
-        onFill(value);
-        // eslint-disable-next-line
-    }, [codes]);
-    reactExports.useEffect(() => {
-        setCodes(new Array(pinLength).fill(''));
-    }, [pinLength]);
-    return (React.createElement("div", { className: 'react-pin' }, codes.map((code, index) => React.createElement(PinInput, { code: code, ref: input => (inputsRef.current[index] = input), className: inputClass, key: index, type: inputType, inputHandler: (key) => { onKeyInput(index, key); } }))));
-};
-
-exports.ReactPin = ReactPin;
