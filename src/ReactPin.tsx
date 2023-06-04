@@ -89,9 +89,7 @@ const ReactPin:React.FC<ReactPinProps> = ({ length = 6, type = 'numeric', inputC
 
   return (
     <div className='react-pin'>
-      {
-        codes.map((code, index) => <PinInput code={code} className={inputClass} key={index} type={inputType} inputHandler={(key: Pin) => { onKeyInput(index, key) }} />)
-      }
+      asdf
     </div>
   )
 }
