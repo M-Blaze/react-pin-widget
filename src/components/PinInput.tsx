@@ -1,8 +1,6 @@
 import React from 'react'
 
 import { Pin } from '../@types'
-import styles from './PinInput.module.css'
-
 interface PinInputProps {
   type: string,
   code: Pin,
@@ -17,7 +15,7 @@ const PinInput = React.forwardRef<HTMLInputElement, PinInputProps>(({ code, type
   }
   
   return (
-    <input className={`pin-input ${styles.pinInput || ''} ${className || ''}`} style={style} autoComplete='off' ref={ref} type={type} value={code} onKeyDown={handleKeyDown} onChange={() => {}} />
+    <input className={`pin-input ${className || ''}`} style={style} autoComplete='off' ref={ref} type={type} value={code} onKeyDown={handleKeyDown} onChange={() => {}} />
   )
 })
 
