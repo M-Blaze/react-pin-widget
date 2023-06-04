@@ -32,52 +32,52 @@ Using yarn:
 
 ## Properties
 
-```
-  <div>
-    <span style="background-color: #ccc;">length: number</span> optional
-    <br />
-    It is the number of pin input.
-    <br />
-    Default value is 6
-  </div>
-  <hr />
-  <div>
-    <span style="background-color: #ccc;">type: string</span> optional
-    <br />
-    It is the type of input.
-    <br />
-    <strong style="color: red">Values accepted</strong>
-    <ol>
-      <li>
-         <span style="background-color: #ccc;">numeric (Default)</span> Accepts numbers only
-      </li>
-      <li>
-         <span style="background-color: #ccc;">alphaNumeric</span> Accepts both alphabets and numbers
-      </li>
-      <li>
-         <span style="background-color: #ccc;">alphabet</span> Accepts alphabets only
-      </li>
-      <li>
-         <span style="background-color: #ccc;">numericPassword</span> Password type, accepts numbers only
-      </li>
-      <li>
-         <span style="background-color: #ccc;">alphaNumericPassword</span> Password type, accepts both alphabets and numbers
-      </li>
-    </ol>
-  </div>
-  <hr />
-  <div>
-    <span style="background-color: #ccc;">inputClass: string</span> optional
+<div>
+  <span style="background-color: #ccc;">length: number</span> optional
+  <br />
+  It is the number of pin input.
+  <br />
+  Default value is 6
+</div>
+<hr />
+<div>
+  <span style="background-color: #ccc;">type: string</span> optional
+  <br />
+  It is the type of input.
+  <br />
+  <strong style="color: red">Values accepted</strong>
+  <ol>
+    <li>
+        <span style="background-color: #ccc;">numeric (Default)</span> Accepts numbers only
+    </li>
+    <li>
+        <span style="background-color: #ccc;">alphaNumeric</span> Accepts both alphabets and numbers
+    </li>
+    <li>
+        <span style="background-color: #ccc;">alphabet</span> Accepts alphabets only
+    </li>
+    <li>
+        <span style="background-color: #ccc;">numericPassword</span> Password type, accepts numbers only
+    </li>
+    <li>
+        <span style="background-color: #ccc;">alphaNumericPassword</span> Password type, accepts both alphabets and numbers
+    </li>
+  </ol>
+</div>
+<hr />
+<div>
+  <span style="background-color: #ccc;">inputClass: string</span> optional
 
-    Used to style pin inputs
-  </div>
-  <hr />
-  <div>
-    <span style="background-color: #ccc;">onFill: function</span> optional
+Used to style pin inputs
 
-    emits and event on every key input.
-  </div>
-```
+</div>
+<hr />
+<div>
+  <span style="background-color: #ccc;">onFill: function</span> optional
+
+emits and event on every key input.
+
+</div>
 
 ---
 
