@@ -1,24 +1,9 @@
 import React from 'react'
 
-import { Pin } from '../@types'
-import './pin-input.css'
-
-interface PinInputProps {
-  type: string,
-  code: Pin,
-  className?: string,
-  style?: React.CSSProperties,
-  inputHandler: (code: Pin) => void
-}
-
-const PinInput = React.forwardRef<HTMLInputElement, PinInputProps>(({ code, type, inputHandler, className, style }, ref) => {
-  const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
-    inputHandler(e.key)
-  }
-  
+const PinInput = () => {
   return (
-    <input className={`pin-input ${className || ''}`} style={style} autoComplete='off' ref={ref} type={type} value={code} onKeyDown={handleKeyDown} onChange={() => {}} />
+    <div>PinInput</div>
   )
-})
+}
 
 export default PinInput
