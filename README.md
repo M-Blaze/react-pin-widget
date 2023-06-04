@@ -33,11 +33,9 @@ import ReactPin from 'react-pin-widget'
 ## Properties
 
 <div>
-  <strong>length: Number (Default: 6)</span> (optional)
+  <strong>length</strong>: Number (Default: 6) (optional)
   
   It is the number of pin input.
-  
-  Default value is 6
   
   ```
   <ReactPin length={5} />
@@ -45,7 +43,7 @@ import ReactPin from 'react-pin-widget'
 </div>
 <hr />
 <div>
-  <span>type: string</span> (optional)
+  <strong>type</strong>: string (optional)
   
   It is the type of input.
 
@@ -53,7 +51,7 @@ import ReactPin from 'react-pin-widget'
 <ReactPin type='alphabet'/>
 ```
 
-<strong ">Values accepted</strong>
+<strong>Values accepted</strong>
 
   <ol>
     <li>
@@ -82,7 +80,7 @@ Used to style pin inputs
 </div>
 <hr />
 <div>
-  <span>onFill: function</span> (optional)
+  <strong>onFill</strong>: function(optional)
 
 emits and event on every key input.
 

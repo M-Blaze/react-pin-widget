@@ -1,6 +1,6 @@
 {
   "name": "react-pin-widget",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "A flexible and easy to use react pin component",
   "scripts": {
     "build": "rollup -c --bundleConfigAsCjs",
