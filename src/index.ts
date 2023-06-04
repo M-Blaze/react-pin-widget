@@ -1,1 +1,1 @@
-export { default } from "./ReactPin";
+export * from "./ReactPin";
