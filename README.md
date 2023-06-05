@@ -9,7 +9,7 @@
 Using npm:
 
 ```
-npm i --save react-pin-input
+npm i --save react-pin-widget
 ```
 
 ---
@@ -17,7 +17,7 @@ npm i --save react-pin-input
 Using yarn:
 
 ```
-yarn add react-pin-input
+yarn add react-pin-widget
 ```
 
 ---
